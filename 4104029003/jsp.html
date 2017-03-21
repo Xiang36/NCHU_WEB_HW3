@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>還是關於我</title>
+		<link rel="stylesheet" href="main.css">
+		<style>
+		table {
+			font-size: 150%;
+			background-color: SlateGray;
+			margin-top: auto;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: auto;
+
+			border-style: dashed;
+			border-width: 10px;
+			border-color: #FFD382;
+
+			padding-top: auto;
+			padding-left: auto;
+			padding-right: auto;
+			padding-bottom: auto;
+		}
+
+		</style>
+	</head>
+
+	<body background="wood.jpg">
+			<h1 id="jsp1">身高:168</h1>
+			<h1 id="jsp1">體重:58</h1>
+			<h1 id="jsp1">興趣:逛街，睡覺</h1>
+			<h1 id="cc"></h1>
+		<br><br>
+		<table id="jspt" border>
+			<tr>
+				<th>Elementary School</th>
+				<th>Junior High School</th>
+				<th>Senior High School</th>
+				<th>College</th>
+			</tr>
+			<tr>
+				<td><table>Taipei</table></td>
+				<td>Taipei</td>
+				<td>Taipei</td>
+				<td>Taichung</td>
+			</tr>
+			<tr>
+				<td>老松國民小學</td>
+				<td>弘道國民中學</td>
+				<td>華江高級中學</td>
+				<td>中興大學資訊管理學系</td>
+			</tr>
+		</table>
+		<br><br>
+		<form name="f1" method="post">
+			姓名:<br>
+			<input type="text" name="username" placeholder="請輸入姓名"/>
+			<br>
+			生日:<br>
+			<select name="year">
+			<option value="1996">1996</option>
+　			<option value="1997">1997</option>
+　			<option value="1998">1998</option>
+　			<option value="1999">1999</option>
+			</select>
+			<select name="month">
+			<option value="1">1</option>
+　			<option value="2">2</option>
+　			<option value="3">3</option>
+　			<option value="4">4</option>
+			<option value="5">5</option>
+　			<option value="6">6</option>
+　			<option value="7">7</option>
+　			<option value="8">8</option>
+			<option value="9">9</option>
+　			<option value="10">10</option>
+　			<option value="11">11</option>
+　			<option value="12">12</option>
+			</select>
+			<select name="day">
+			<option value="1">1</option>
+　			<option value="2">2</option>
+　			<option value="3">3</option>
+　			<option value="4">4</option>
+			<option value="5">5</option>
+　			<option value="6">6</option>
+　			<option value="7">7</option>
+　			<option value="8">8</option>
+			<option value="9">9</option>
+　			<option value="10">10</option>
+　			<option value="11">11</option>
+　			<option value="12">12</option>
+			<option value="13">13</option>
+　			<option value="14">14</option>
+　			<option value="15">15</option>
+　			<option value="16">16</option>
+			<option value="17">17</option>
+　			<option value="18">18</option>
+　			<option value="19">19</option>
+　			<option value="20">20</option>
+			<option value="21">21</option>
+　			<option value="22">22</option>
+　			<option value="23">23</option>
+　			<option value="24">24</option>
+			<option value="25">25</option>
+　			<option value="26">26</option>
+　			<option value="27">27</option>
+　			<option value="28">28</option>
+			<option value="29">29</option>
+　			<option value="30">30</option>
+　			<option value="31">31</option>
+　			</select>
+			<br>
+			性別:<br>
+			<input type="radio" value="男生" name="sex"> 男
+			<br>
+			<input type="radio" value="女生" name="sex"> 女
+			<br>
+			興趣(可複選):<br>
+			<input type="checkbox" value="旅遊" name="hobby" class="hobby"> 旅遊
+			<br>
+			<input type="checkbox" value="電影" name="hobby" class="hobby"> 電影
+			<br>
+			<input type="checkbox" value="美食" name="hobby" class="hobby"> 美食
+			<br>
+			<input type="checkbox" value="聽音樂" name="hobby" class="hobby"> 聽音樂
+			<br>
+			<input type="checkbox" value="玩遊戲" name="hobby" class="hobby"> 玩遊戲
+			<br>
+			<input type="checkbox" value="睡覺" name="hobby" class="hobby"> 睡覺
+			<br>
+			<input type="checkbox" value="耍廢" name="hobby" class="hobby"> 耍廢
+			<br>
+			多介紹一點自己吧:<br>
+			<textarea width = "560" height = "9999" value="index" name="index"></textarea>
+			<br>
+			<input type="button" value="送出" onclick="postData()" />
+			</form>
+			<p id="output"></p>
+
+			<div id="d"> </div>
+			<script>
+				function postData(){
+				var output = document.getElementById("output");
+				var username = document.f1.username.value;
+				var year = document.f1.year.value;
+				var month = document.f1.month.value;
+				var day = document.f1.day.value;
+				var sex = document.f1.sex.value;
+				var hobby = Array.prototype.slice.call(document.querySelectorAll(".hobby:checked")).map(function(el) {
+				return el.value;
+				}).join(', ')
+				var index = document.f1.index.value;
+
+				var objNode = document.getElementById("d");
+				var table_Node = document.createElement("table");
+				var tr = document.createElement("tr");
+				var th = document.createElement("th");
+				var th2 = document.createElement("th");
+				var th3 = document.createElement("th");
+				var th4 = document.createElement("th");
+				var th5 = document.createElement("th");
+				var strText = "姓名";
+				var table_Node_text = document.createTextNode(strText);
+				var strText2 = "生日";
+				var table_Node_text2 = document.createTextNode(strText2);
+				var strText3 = "性別";
+				var table_Node_text3 = document.createTextNode(strText3);
+				var strText4 = "興趣";
+				var table_Node_text4 = document.createTextNode(strText4);
+				var strText5 = "多介紹一點自己吧";
+				var table_Node_text5 = document.createTextNode(strText5);
+
+				objNode.appendChild(table_Node);
+				table_Node.appendChild(tr);
+				tr.appendChild(th);
+				tr.appendChild(th2);
+				tr.appendChild(th3);
+				tr.appendChild(th4);
+				tr.appendChild(th5);
+				th.appendChild(table_Node_text);
+				th2.appendChild(table_Node_text2);
+				th3.appendChild(table_Node_text3);
+				th4.appendChild(table_Node_text4);
+				th5.appendChild(table_Node_text5);
+
+				var td = document.createElement("td");
+				var tr2 = document.createElement("tr");
+				var td1 = document.createElement("td");
+				var td2 = document.createElement("td");
+				var td3 = document.createElement("td");
+				var td4 = document.createElement("td");
+				var td5 = document.createElement("td");
+				var table_Node_text6 = document.createTextNode(username);
+				var table_Node_text7 = document.createTextNode(year+"/"+month+"/"+day);
+				var table_Node_text8 = document.createTextNode(sex);
+				var table_Node_text9 = document.createTextNode(hobby);
+				var table_Node_text10 = document.createTextNode(index);
+
+				table_Node.appendChild(tr2);
+				tr2.appendChild(td);
+				tr2.appendChild(td2);
+				tr2.appendChild(td3);
+				tr2.appendChild(td4);
+				tr2.appendChild(td5);
+				td.appendChild(table_Node_text6);
+				td2.appendChild(table_Node_text7);
+				td3.appendChild(table_Node_text8);
+				td4.appendChild(table_Node_text9);
+				td5.appendChild(table_Node_text10);
+				table_Node.setAttribute("border", "2");
+
+				//output.innerHTML = "這是你的履歷表===>"+"<table border>"+"<tr>"+"<th>"+"姓名:"+"</th>"+"<th>"+username+"</th>"+"</tr>"+
+				//"<tr>"+"<th>"+"生日:"+"</th>"+"<th>"+year+"年"+month+"月"+day+"日"+"</th>"+"</tr>"+
+				//"<tr>"+"<th>"+"性別:"+"</th>"+"<th>"+sex+"</th>"+"</tr>"+
+				//"<tr>"+"<th>"+"興趣:"+"</th>"+"<th>"+hobby+"</th>"+"</tr>"+
+				//"<tr>"+"<th>"+"多介紹一點自己吧:"+"</th>"+"<th>"+index+"</th>"+"</tr>"+
+				//"</table>" ;
+				//alert("履歷表儲存成功!!\n履歷表將列印在下面!!");
+			}
+			</script>
+
+		<form method="post">
+			<br><br>
+			帳號：<br>
+			<input type="text" name="account" placeholder="請輸入帳號"/>
+			<br>
+			密碼：<br>
+			<input type="password" name="pwd" placeholder="請輸入密碼"/>
+			<br><br>
+			<input type="submit" value="登入"/>
+		</form>
+		<span>
+		<a href = "index.html" id="jsp1"><br><br>回到關於我</a>
+		</span>
+		<script>
+			document.getElementById("cc").innerHTML = "Testing DOM function";
+		</script>
+	</body>
+</html>
