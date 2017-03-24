@@ -5,9 +5,7 @@
 <title>互動式履歷表</title>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
 
 <script>
@@ -40,8 +38,24 @@ ho3=ho[2].value;
 alert("您輸入的資料為\n名字: "+name1+"\n生日: "+date+"\n性別: "+gender+"\n選了"+hoNum+"個興趣\n分別是: "+ho1+" "+ho2+" "+ho3+"\n自傳:\n"+text);
 
 
-var objNode=document.getElementById("table1");
+var objNewNode;
 
+if(document.getElementById("p1").value==0);
+{var objNode=document.getElementById("div1");
+
+
+objNewNode=document.createElement("table");
+objNewNode.border="1";
+objNewNode.width="300";
+objNewNode.id="table1";
+
+
+objNode.appendChild(objNewNode);
+
+document.getElementById("p1").value="1";
+}
+
+var objNewNode=document.getElementById("table1");
 
 
 var tr1=document.createElement("tr");
@@ -49,11 +63,11 @@ var tr2=document.createElement("tr");
 var tr3=document.createElement("tr");
 var tr4=document.createElement("tr");
 var tr5=document.createElement("tr");
-objNode.appendChild(tr1);
-objNode.appendChild(tr2);
-objNode.appendChild(tr3);
-objNode.appendChild(tr4);
-objNode.appendChild(tr5);
+objNewNode.appendChild(tr1);
+objNewNode.appendChild(tr2);
+objNewNode.appendChild(tr3);
+objNewNode.appendChild(tr4);
+objNewNode.appendChild(tr5);
 
 var td11=document.createElement("td");
 var td12=document.createElement("td");
@@ -125,6 +139,9 @@ function hideElement() { var h = document.getElementById("table1"); if (h.style.
 
 <body>
 
+
+<p value="0" id="p1">
+
 <form action="javascript:send()" name="form1">
 
 <p class="littlered" onmouseover="this.style.color='blue';" onmouseout="this.style.color='red';" onclick="this.className='bigred';" >
@@ -189,7 +206,7 @@ function hideElement() { var h = document.getElementById("table1"); if (h.style.
 
  
 
-<div id="div1"><table id="table1" border="1"></table></div>
+<div id="div1"></div>
 
 
 
